@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Theme.TanamanObat">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Tanaman Obat"
+            app:menu="@menu/menu"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_photo"
+                android:layout_width="match_parent"
+                android:layout_height="308dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/kumis_kucing"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                tools:text=
+                    "Orthosiphon aristatus atau dikenal dengan nama kumis kucing termasuk tanaman dari famili Lamiaceae/Labiatae. Tanaman ini merupakan salah satu tanaman obat asli Indonesia yang mempunyai manfaat dan kegunaan yang cukup banyak dalam menanggulangi berbagai penyakit.
+Daun kumis kucing sangat terkenal ampuh untuk mengobati kencing batu dan melancarkan saluran kemih karena memiliki sifat diuretik yang dapat membantu meningkatkan produksi urin.  Dengan demikian, bakteri kotor pada kandung kemih dapat terbuang.
+Selain itu, kumis kucing juga mengandung zat anti radang yang sangat berkhasiat untuk mengobati rematik, asam urat, alergi, batuk, gangguan pada ginjal, diabetes, hingga hipertensi. Tak hanya bermanfaat untuk kesehatan, bentuk tanaman kumis kucing yang cantik juga bisa memperindah halaman rumah."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_photo"
+                android:padding="24dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

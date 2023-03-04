@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Tanaman Obat</string>
+    <string name="plants_name">Nama Tanaman</string>
+    <string name="detail">Detail</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="cardview">CardView</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
+    <string name="favorit">Favorit</string>
+    <string name="profile">profile</string>
+    <string name="profile_name">Arjuna Wahyu Kusuma</string>
+    <string name="back_buttom">back_buttom</string>
+    <string name="arjunawahyu0007_gmail_com">arjunawahyu0007@gmail.com</string>
+    <string name="designed_by_arjuna">Designed by Arjuna</string>
+</resources>
