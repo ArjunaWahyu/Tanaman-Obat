@@ -2,12 +2,22 @@ package id.arjuna.tanamanobat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import id.arjuna.tanamanobat.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        supportActionBar!!.title = "Profile"
+        setupTopBar()
+    }
+
+    private fun setupTopBar() {
+        binding.topAppBar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }

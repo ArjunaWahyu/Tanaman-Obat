@@ -3,50 +3,47 @@ package id.arjuna.tanamanobat
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.arjuna.tanamanobat.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var rvPlants: RecyclerView
+    private lateinit var binding: ActivityMainBinding
     private var list: ArrayList<Plant> = arrayListOf()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        rvPlants = findViewById(R.id.rv_tanamanObat)
-        rvPlants.setHasFixedSize(true)
+//        binding.rvTanamanObat.setHasFixedSize(true)
+//
+//        list.addAll(PlantsData.listData)
 
-        list.addAll(PlantsData.listData)
+        setupTopBar()
         showRecyclerList()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        showProfile()
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun showProfile(){
-        startActivity(Intent(this, ProfileActivity::class.java))
-    }
-
-    private fun showSelectedPlant(plant: Plant) {
-        Toast.makeText(this, plant.name, Toast.LENGTH_SHORT).show()
+    private fun setupTopBar(){
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId){
+                R.id.profile -> {
+                    showProfile()
+                    true
+                }
+                else -> {false}
+            }
+        }
     }
 
     private fun showRecyclerList() {
-        rvPlants.layoutManager = LinearLayoutManager(this)
+        binding.rvTanamanObat.setHasFixedSize(true)
+        list.addAll(PlantsData.listData)
+
+        binding.rvTanamanObat.layoutManager = LinearLayoutManager(this)
         val listPlantAdapter = ListPlantAdapter(list)
-        rvPlants.adapter = listPlantAdapter
+        binding.rvTanamanObat.adapter = listPlantAdapter
 
         listPlantAdapter.setOnItemClickCallback(object : ListPlantAdapter.OnItemClickCallback{
             override fun onItemClicked(data: Plant) {
@@ -60,5 +57,13 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         })
+    }
+
+    private fun showProfile(){
+        startActivity(Intent(this, ProfileActivity::class.java))
+    }
+
+    private fun showSelectedPlant(plant: Plant) {
+        Toast.makeText(this, plant.name, Toast.LENGTH_SHORT).show()
     }
 }
